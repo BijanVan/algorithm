@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Misc",
+            "request": "launch",
+            "mainClass": "com.bijansoft.Misc",
+            "projectName": "algorithm"
+        }
+    ]
+}

@@ -7,6 +7,8 @@
     <bytecodeTargetLevel>
       <module name="algorithm_main" target="11" />
       <module name="algorithm_test" target="11" />
+      <module name="Java-algorithm_main" target="11" />
+      <module name="Java-algorithm_test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -78,8 +78,13 @@ public class GraphMain {
     System.out.printf(
         "\nstart: %s, end: %s, result %b: ", start.getVertex(), end.getVertex(), result);
     System.out.println("\n=======");
+    g = createNewGraph();
+    n = g.getVertices();
+    start = n[0];
+    end = n[5];
+
     result = searchBfs(g, start, end);
     System.out.printf(
-        "start: %s, end: %s, result %b: ", start.getVertex(), end.getVertex(), result);
+        "\nstart: %s, end: %s, result %b: ", start.getVertex(), end.getVertex(), result);
   }
 }

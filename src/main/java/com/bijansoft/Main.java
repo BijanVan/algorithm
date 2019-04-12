@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Set;
@@ -425,6 +426,36 @@ public class Main {
     }
 
     return count;
+  }
+
+  private static BinaryTreeNode<Integer> fromSortedArray(int[] array) {
+    Objects.requireNonNull(array);
+    if (array.length == 0)
+      throw new IllegalArgumentException("array must have at least one element");
+
+    BinaryTreeNode<Integer> root = new BinaryTreeNode<>();
+    int mid = array.length / 2;
+    root.data = array[mid];
+
+    fromSortedArray(root, array, 0, mid, false);
+    fromSortedArray(root, array, mid + 1, array.length, true);
+
+    return root;
+  }
+
+  private static void fromSortedArray(
+      BinaryTreeNode<Integer> parent, int[] array, int start, int end, boolean right) {
+    if (start < end) {
+      int mid = (end - start) / 2;
+      BinaryTreeNode<Integer> node = new BinaryTreeNode<>();
+      node.data = array[mid];
+      if (right) parent.right = node;
+      else parent.left = node;
+
+//      fromSortedArray(root, array, 0, mid, false);
+//      fromSortedArray(root, array, mid + 1, array.length, true);
+    }
+
   }
 
   public static void main(String[] args) throws Exception {

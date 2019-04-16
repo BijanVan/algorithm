@@ -240,10 +240,9 @@ public class Main {
   }
 
   private static void treeTraversal(BinaryTreeNode<Integer> root) {
-    // pre-order
     if (root != null) {
-      System.out.println(root.data);
       treeTraversal(root.left);
+      System.out.println(root.data);
       treeTraversal(root.right);
     }
   }
@@ -446,23 +445,23 @@ public class Main {
   private static void fromSortedArray(
       BinaryTreeNode<Integer> parent, int[] array, int start, int end, boolean right) {
     if (start < end) {
-      int mid = (end - start) / 2;
+      int mid = start + (end - start) / 2;
       BinaryTreeNode<Integer> node = new BinaryTreeNode<>();
       node.data = array[mid];
       if (right) parent.right = node;
       else parent.left = node;
 
-//      fromSortedArray(root, array, 0, mid, false);
-//      fromSortedArray(root, array, mid + 1, array.length, true);
+      fromSortedArray(node, array, start, mid, false);
+      fromSortedArray(node, array, mid + 1, end, true);
     }
-
   }
 
   public static void main(String[] args) throws Exception {
+    treeTraversal(fromSortedArray(new int[] {1, 2, 3, 4, 5, 6}));
     // System.out.println(searchAnagramPattern("abcd", "abcdabkkkkaaaabcd"));
     // System.out.println(searchAnagramPattern("ab", "babba"));
 
-    allPermutations(new int[] {1, 2, 3, 4}, 0);
+//    allPermutations(new int[] {1, 2, 3, 4}, 0);
 
     // // boolean[][] grid =
     // // new boolean[][] {{true, false, false}, {true, true, true}, {true, true, true}};

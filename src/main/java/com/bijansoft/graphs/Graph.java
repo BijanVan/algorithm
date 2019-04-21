@@ -29,7 +29,7 @@ class Graph {
   }
 
   static class Node {
-    private Node[] adjacent;
+    private Node[] adjacents;
     private int adjacentCount;
     private String vertex;
     private State state;
@@ -38,22 +38,22 @@ class Graph {
     Node(String vertex, int adjacentLength) {
       this.vertex = vertex;
       adjacentCount = 0;
-      adjacent = new Node[adjacentLength];
+      adjacents = new Node[adjacentLength];
       state = State.UNVISITED;
       from = null;
     }
 
     void addAdjacent(Node node) {
-      if (adjacentCount < adjacent.length) {
-        this.adjacent[adjacentCount] = node;
+      if (adjacentCount < adjacents.length) {
+        this.adjacents[adjacentCount] = node;
         adjacentCount++;
       } else {
-        System.out.print("No more adjacent can be added");
+        System.out.print("No more adjacents can be added");
       }
     }
 
-    public Node[] getAdjacent() {
-      return adjacent;
+    public Node[] getAdjacents() {
+      return adjacents;
     }
 
     public int getAdjacentCount() {

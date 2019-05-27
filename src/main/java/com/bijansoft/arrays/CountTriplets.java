@@ -1,4 +1,4 @@
-package com.bijansoft;
+package com.bijansoft.arrays;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-class Misc1 {
+class CountTriplets {
 
   private static long solution(int[] data, int k, int l) {
     long[] ks = slidingSum(data, k);

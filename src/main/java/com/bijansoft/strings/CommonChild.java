@@ -43,13 +43,16 @@ public class CommonChild {
 
   public static void main(String[] args) {
     // data0: 27 data1: 155 data2: 321 data3: 1417
-    URL url = CommonChild.class.getClassLoader().getResource("strings/data1.txt");
+    URL url = CommonChild.class.getClassLoader().getResource("strings/data3.txt");
     assert url != null;
     try (BufferedReader reader = new BufferedReader(new FileReader(url.getFile()))) {
       String s1 = reader.readLine();
       String s2 = reader.readLine();
 
+      long start = System.currentTimeMillis();
       System.out.println(commonChild(s1, s2));
+      long end = System.currentTimeMillis();
+      System.out.println("Time: " + (end - start) / 1000.0);
 
     } catch (IOException ex) {
       System.err.println("File not fount:" + ex.getMessage());

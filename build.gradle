@@ -34,6 +34,7 @@ dependencies {
 }
 
 test {
+    jvmArgs('-XX:+UnlockExperimentalVMOptions', '-XX:+UseZGC', '-Xmx256m') // '-Xlog:gc:Test.vgc'
     useJUnitPlatform {
         includeEngines 'junit-jupiter'
         excludeEngines 'junit-vintage'
